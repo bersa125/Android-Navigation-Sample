@@ -9,20 +9,45 @@
     tools:context=".FlowFragment"
     >
 
-    <android.support.v7.widget.AppCompatTextView
-        android:id="@+id/text"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/three_title"
         android:textColor="@android:color/black"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@id/next_button"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintBottom_toTopOf="@id/text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         />
 
-    <android.support.v7.widget.AppCompatButton
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/checkbox_modify_previous_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/propagate_five_on_back"
+        android:layout_marginStart="20dp"
+        app:layout_constraintBottom_toBottomOf="@id/text_title"
+        app:layout_constraintStart_toEndOf="@id/text_title"
+        app:layout_constraintTop_toTopOf="@id/text_title"
+        />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/next_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_title"
+
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/next_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -33,5 +58,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text"
+        />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/back_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:text="@string/to_back_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/next_button"
         />
 </android.support.constraint.ConstraintLayout>

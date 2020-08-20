@@ -9,4 +9,6 @@
 
     <string name="next_button">Next Fragment</string>
     <string name="to_top_button">To Main Fragment</string>
+    <string name="to_back_button">Go back to 1 with 4</string>
+    <string name="propagate_five_on_back">Propagate 5 onBackPressed</string>
 </resources>
