@@ -10,7 +10,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/fragment"
-        android:name="com.yagi2.navigationsample.view.main.MainFragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        app:navGraph="@navigation/first_nav_graph"
+        app:defaultNavHost="true"
         />
 
 </android.support.constraint.ConstraintLayout>

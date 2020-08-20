@@ -2,14 +2,14 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/first_Nav_graph"
+    android:id="@+id/first_nav_graph"
     app:startDestination="@id/fragment_main">
 
     <fragment
         android:id="@+id/fragment_main"
-        android:name="com.yagi2.navigationsample.MainFragment"
+        android:name="com.yagi2.navigationsample.view.firstexample.FirstFragment"
         android:label="MainFragment"
-        tools:layout="@layout/fragment_main">
+        tools:layout="@layout/fragment_first_example">
 
         <action
             android:id="@+id/action_main_to_flow_one"
@@ -22,7 +22,7 @@
 
     <fragment
         android:id="@+id/fragment_one"
-        android:name="com.yagi2.navigationsample.FlowFragment"
+        android:name="com.yagi2.navigationsample.view.firstexample.FlowFragment"
         android:label="fragment_one"
         tools:layout="@layout/fragment_one">
 
@@ -42,7 +42,7 @@
 
     <fragment
         android:id="@+id/fragment_two"
-        android:name="com.yagi2.navigationsample.FlowFragment"
+        android:name="com.yagi2.navigationsample.view.firstexample.FlowFragment"
         android:label="fragment_one"
         tools:layout="@layout/fragment_two">
 
@@ -62,7 +62,7 @@
 
     <fragment
         android:id="@+id/fragment_three"
-        android:name="com.yagi2.navigationsample.FlowFragment"
+        android:name="com.yagi2.navigationsample.view.firstexample.FlowFragment"
         android:label="fragment_one"
         tools:layout="@layout/fragment_three">
 

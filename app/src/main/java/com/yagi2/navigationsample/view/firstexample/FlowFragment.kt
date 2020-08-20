@@ -1,4 +1,4 @@
-package com.yagi2.navigationsample
+package com.yagi2.navigationsample.view.firstexample
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import kotlinx.android.synthetic.main.fragment_one.*
+import com.yagi2.navigationsample.R
 import kotlinx.android.synthetic.main.fragment_one.text
 import kotlinx.android.synthetic.main.fragment_three.*
 
@@ -39,18 +39,23 @@ class FlowFragment : Fragment() {
 
         navController = Navigation.findNavController(view)
 
-        navController.currentBackStackEntry?.savedStateHandle?.getLiveData<Int>("number")?.observe(
-                viewLifecycleOwner, object : Observer<Int> {
-            override fun onChanged(t: Int?) {
-                //Update the label only on back from three
-                if (navController.currentDestination?.id == R.id.fragment_two && navController.graph.id == R.id.first_Nav_graph)
-                    text?.text=t.toString()
-            }
+        navController.currentBackStackEntry?.savedStateHandle?.getLiveData<Int>("number")?.observe(viewLifecycleOwner
+                , Observer<Int> { t -> //Update the label only on back from three
+            if (navController.currentDestination?.id == R.id.fragment_two && navController.graph.id == R.id.first_nav_graph)
+                text?.text = t.toString()
         })
 
 
         text?.text=arguments.run {
             FlowFragmentArgs.fromBundle(this).number.toString()
+        }
+
+        if(navController.currentDestination?.id == R.id.fragment_three) {
+            if (navController.graph.id != R.id.first_nav_graph) {
+                checkbox_modify_previous_label.visibility = View.GONE
+            } else {
+                checkbox_modify_previous_label.visibility = View.VISIBLE
+            }
         }
 
         view.findViewById<Button>(R.id.next_button).setOnClickListener(
@@ -67,7 +72,7 @@ class FlowFragment : Fragment() {
                 .addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
                     override fun handleOnBackPressed() {
 
-                        if (navController.currentDestination?.id == R.id.fragment_three && navController.graph.id == R.id.first_Nav_graph && checkbox_modify_previous_label.isChecked){
+                        if (navController.currentDestination?.id == R.id.fragment_three && navController.graph.id == R.id.first_nav_graph && checkbox_modify_previous_label.isChecked){
                             navController.previousBackStackEntry?.savedStateHandle?.set("number", 5)
                         }
 
