@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
+import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -13,17 +13,25 @@ import androidx.navigation.Navigation
 import com.yagi2.navigationsample.R
 import kotlinx.android.synthetic.main.fragment_one.text
 import kotlinx.android.synthetic.main.fragment_three.*
+import kotlin.properties.Delegates
 
 class FlowFragment : Fragment() {
 
+    companion object{
+
+        const val ON_BACK_NUMBER_PARAMETER_KEY= "number"
+
+    }
+
     private lateinit var navController : NavController
+    private var number by Delegates.notNull<Int>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
 
-        val number = arguments?.let {
+        number = arguments?.let {
             FlowFragmentArgs.fromBundle(it).number
-        }
+        }!!
 
         return when (number) {
             1 -> inflater.inflate(R.layout.fragment_one, container, false)
@@ -39,7 +47,13 @@ class FlowFragment : Fragment() {
 
         navController = Navigation.findNavController(view)
 
-        navController.currentBackStackEntry?.savedStateHandle?.getLiveData<Int>("number")?.observe(viewLifecycleOwner
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+
+        navController.currentBackStackEntry?.savedStateHandle?.getLiveData<Int>(ON_BACK_NUMBER_PARAMETER_KEY)?.observe(viewLifecycleOwner
                 , Observer<Int> { t -> //Update the label only on back from three
             if (navController.currentDestination?.id == R.id.fragment_two && navController.graph.id == R.id.first_nav_graph)
                 text?.text = t.toString()
@@ -58,11 +72,11 @@ class FlowFragment : Fragment() {
             }
         }
 
-        view.findViewById<Button>(R.id.next_button).setOnClickListener(
-            Navigation.createNavigateOnClickListener(R.id.action_next_flow)
+        next_button.setOnClickListener(
+                Navigation.createNavigateOnClickListener(R.id.action_next_flow)
         )
 
-        view.findViewById<Button>(R.id.back_button)?.setOnClickListener {
+        back_button?.setOnClickListener {
             //Influence a fragment back in the
             navController.navigate(FlowFragmentDirections.actionBackWithArgumentsFlow(4))
         }
@@ -73,7 +87,7 @@ class FlowFragment : Fragment() {
                     override fun handleOnBackPressed() {
 
                         if (navController.currentDestination?.id == R.id.fragment_three && navController.graph.id == R.id.first_nav_graph && checkbox_modify_previous_label.isChecked){
-                            navController.previousBackStackEntry?.savedStateHandle?.set("number", 5)
+                            navController.previousBackStackEntry?.savedStateHandle?.set(ON_BACK_NUMBER_PARAMETER_KEY, 5)
                         }
 
                         if (isEnabled) {
@@ -83,4 +97,15 @@ class FlowFragment : Fragment() {
                     }
                 })
     }
+
+    override fun onDestroyView() {
+        //Toast.makeText(context,"Destroying View",Toast.LENGTH_SHORT).show()
+        super.onDestroyView()
+    }
+
+    override fun onDestroy() {
+        //Toast.makeText(context,"Destroying Fragment",Toast.LENGTH_SHORT).show()
+        super.onDestroy()
+    }
+
 }

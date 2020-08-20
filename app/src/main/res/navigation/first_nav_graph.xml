@@ -43,7 +43,7 @@
     <fragment
         android:id="@+id/fragment_two"
         android:name="com.yagi2.navigationsample.view.firstexample.FlowFragment"
-        android:label="fragment_one"
+        android:label="fragment_two"
         tools:layout="@layout/fragment_two">
 
         <argument
@@ -63,7 +63,7 @@
     <fragment
         android:id="@+id/fragment_three"
         android:name="com.yagi2.navigationsample.view.firstexample.FlowFragment"
-        android:label="fragment_one"
+        android:label="fragment_three"
         tools:layout="@layout/fragment_three">
 
         <argument

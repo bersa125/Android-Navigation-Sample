@@ -13,4 +13,6 @@
     <string name="propagate_five_on_back">Propagate 5 onBackPressed</string>
     <string name="first_example_label">First Example</string>
     <string name="to_first_example">To First Example</string>
+    <string name="spawn_the_dialog">Spawn the dialog</string>
+    <string name="to_second_example">To Second Example</string>
 </resources>

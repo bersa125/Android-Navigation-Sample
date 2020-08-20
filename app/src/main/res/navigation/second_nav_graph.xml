@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/second_nav_graph.xml"
+    app:startDestination="@id/fragment_main">
+
+    <fragment
+        android:id="@+id/fragment_main"
+        android:name="com.yagi2.navigationsample.view.secondexample.SecondFragment"
+        android:label="SecondFragment"
+        tools:layout="@layout/fragment_first_example">
+
+        <argument
+            android:name="value"
+            android:defaultValue="0"
+            app:argType="integer"
+            />
+
+        <action
+            android:id="@+id/action_spawn_dialog"
+            app:destination="@id/dialog_manipulate"
+            >
+        </action>
+
+    </fragment>
+
+    <dialog
+        android:id="@+id/dialog_manipulate"
+        android:name="com.yagi2.navigationsample.view.secondexample.ManipulateDataDialogFragment"
+        android:label="ManipulateDialog"
+        >
+
+        <action
+            android:id="@+id/action_no_changes"
+            app:destination="@id/fragment_main"
+            app:popUpTo="@id/fragment_main"
+            >
+            <argument
+                android:name="text"
+                app:argType="string"
+                />
+        </action>
+
+    </dialog>
+
+
+
+</navigation>
