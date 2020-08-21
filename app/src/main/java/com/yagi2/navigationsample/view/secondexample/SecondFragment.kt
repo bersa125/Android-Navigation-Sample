@@ -10,16 +10,18 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.navArgs
 import com.yagi2.navigationsample.R
 import com.yagi2.navigationsample.view.firstexample.FirstFragmentDirections
+import com.yagi2.navigationsample.view.firstexample.FlowFragmentArgs
 import com.yagi2.navigationsample.view.main.MainCheckDataParcelable
-import com.yagi2.navigationsample.view.secondexample.ManipulateDataDialogFragment.Companion.COUNTER_MANIPULATION_BACKSTACK_KEY
-import com.yagi2.navigationsample.view.secondexample.ManipulateDataDialogFragment.Companion.TEXT_ARGUMENT_KEY
 import kotlinx.android.synthetic.main.fragment_second_example.*
 
 class SecondFragment : Fragment(){
 
     private lateinit var navController: NavController
+
+    private val args by navArgs<SecondFragmentArgs>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_second_example,container,false)
@@ -34,29 +36,10 @@ class SecondFragment : Fragment(){
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        val  counter =arguments?.let {//Exception launched in case it's not defined
-            SecondFragmentArgs.fromBundle(it).value
-        } ?: 0
-
-        arguments?.get(TEXT_ARGUMENT_KEY).toString().let {
-            Toast.makeText(context,it,Toast.LENGTH_SHORT).show()
-        }
-
-        labelCounter.text = counter.toString()
-
-
-        navController.currentBackStackEntry?.savedStateHandle?.getLiveData<Boolean>(COUNTER_MANIPULATION_BACKSTACK_KEY)?.observe(viewLifecycleOwner
-                , Observer<Boolean> { t -> //Update the label
-            if(t){
-                labelCounter.text = ((labelCounter.text as String).toInt()+1).toString()
-            }else{
-                labelCounter.text = ((labelCounter.text as String).toInt()-1).toString()
-            }
-
-        })
+        labelCounter.text = args.counter.toString()
 
         btnDialogSpawn.setOnClickListener {
-            navController.navigate(SecondFragmentDirections.actionSpawnDialog())
+            navController.navigate(SecondFragmentDirections.actionSpawnDialog(args.counter))
         }
 
         requireActivity().onBackPressedDispatcher

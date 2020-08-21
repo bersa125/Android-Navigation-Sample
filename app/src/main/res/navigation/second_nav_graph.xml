@@ -12,7 +12,7 @@
         tools:layout="@layout/fragment_first_example">
 
         <argument
-            android:name="value"
+            android:name="counter"
             android:defaultValue="0"
             app:argType="integer"
             />
@@ -20,10 +20,7 @@
         <action
             android:id="@+id/action_spawn_dialog"
             app:destination="@id/dialog_manipulate"
-            >
-
-        </action>
-
+           />
         <action
             android:id="@+id/action_exit_to_activity"
             app:destination="@id/activity_main"
@@ -37,13 +34,19 @@
         android:label="ManipulateDialog"
         >
 
+        <argument
+            android:name="counter"
+            app:argType="integer"
+            />
+
         <action
-            android:id="@+id/action_no_changes"
+            android:id="@+id/action_update"
+            app:destination="@id/fragment_main"
             app:popUpTo="@id/fragment_main"
             >
             <argument
-                android:name="text"
-                app:argType="string"
+                android:name="counter"
+                app:argType="integer"
                 />
         </action>
 

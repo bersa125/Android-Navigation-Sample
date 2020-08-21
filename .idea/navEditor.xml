@@ -290,13 +290,13 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-235" />
-                            <option name="y" value="4" />
+                            <option name="x" value="-240" />
+                            <option name="y" value="-132" />
                           </Point>
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_no_changes">
+                            <entry key="action_update">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -317,6 +317,11 @@
                         </option>
                         <option name="myPositions">
                           <map>
+                            <entry key="action_exit_to_activity">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                             <entry key="action_spawn_dialog">
                               <value>
                                 <LayoutPositions />

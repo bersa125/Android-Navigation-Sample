@@ -7,14 +7,12 @@ import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 
 
 class ManipulateDataDialogFragment : DialogFragment() {
 
     companion object {
-
-        const val COUNTER_MANIPULATION_BACKSTACK_KEY = "manipulate"
-        const val TEXT_ARGUMENT_KEY="text"
 
         fun newInstance(title: String?): ManipulateDataDialogFragment {
             val frag = ManipulateDataDialogFragment()
@@ -24,6 +22,8 @@ class ManipulateDataDialogFragment : DialogFragment() {
             return frag
         }
     }
+
+    private val args by navArgs<ManipulateDataDialogFragmentArgs>()
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val title: String = arguments?.getString("title") ?: ""
@@ -35,16 +35,11 @@ class ManipulateDataDialogFragment : DialogFragment() {
         alertDialogBuilder.setMessage("Manipulate the counter?")
         alertDialogBuilder.setPositiveButton("+1", DialogInterface.OnClickListener { dialog, which ->
             //Action to increase
-            navController.previousBackStackEntry?.savedStateHandle?.set(COUNTER_MANIPULATION_BACKSTACK_KEY, true)
-            navController.popBackStack()
+            navController.navigate(ManipulateDataDialogFragmentDirections.actionUpdate(args.counter+1))
         })
         alertDialogBuilder.setNegativeButton("-1", DialogInterface.OnClickListener { dialog, which ->
-            navController.previousBackStackEntry?.savedStateHandle?.set(COUNTER_MANIPULATION_BACKSTACK_KEY, false)
-            navController.popBackStack()
+            navController.navigate(ManipulateDataDialogFragmentDirections.actionUpdate(args.counter-1))
         })
-        alertDialogBuilder.setOnCancelListener {
-            navController.navigate(ManipulateDataDialogFragmentDirections.actionNoChanges("No Changes"))
-        }
         return alertDialogBuilder.create()
     }
 
