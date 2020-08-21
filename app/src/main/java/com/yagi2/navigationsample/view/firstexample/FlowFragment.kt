@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -14,7 +13,6 @@ import androidx.navigation.fragment.navArgs
 import com.yagi2.navigationsample.R
 import kotlinx.android.synthetic.main.fragment_one.text
 import kotlinx.android.synthetic.main.fragment_three.*
-import kotlin.properties.Delegates
 
 class FlowFragment : Fragment() {
 
@@ -68,9 +66,9 @@ class FlowFragment : Fragment() {
             }
         }
 
-        next_button.setOnClickListener(
-                Navigation.createNavigateOnClickListener(R.id.action_next_flow)
-        )
+        next_button.setOnClickListener{
+            navController.navigate(FlowFragmentDirections.actionNextFlow())
+        }
 
         back_button?.setOnClickListener {
             //Influence a fragment back in the

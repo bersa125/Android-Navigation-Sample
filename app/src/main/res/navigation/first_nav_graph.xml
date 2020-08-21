@@ -5,7 +5,6 @@
     android:id="@+id/first_nav_graph"
     app:startDestination="@id/fragment_main">
 
-
     <fragment
         android:id="@+id/fragment_main"
         android:name="com.yagi2.navigationsample.view.firstexample.FirstFragment"
@@ -37,7 +36,6 @@
 
         <argument
             android:name="number"
-            android:defaultValue="1"
             app:argType="integer" />
 
         <action

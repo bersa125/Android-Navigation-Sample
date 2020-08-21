@@ -4,17 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.navArgs
 import com.yagi2.navigationsample.R
-import com.yagi2.navigationsample.view.main.MainActivity
-import com.yagi2.navigationsample.view.main.MainActivityArgs
 import com.yagi2.navigationsample.view.main.MainCheckDataParcelable
-import kotlinx.android.synthetic.main.fragment_main.*
 import kotlinx.android.synthetic.main.fragment_three.*
 
 class FirstFragment : Fragment() {
@@ -36,9 +31,9 @@ class FirstFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        next_button.setOnClickListener(
-                Navigation.createNavigateOnClickListener(R.id.action_main_to_flow_one)
-        )
+        next_button.setOnClickListener{
+                navController.navigate(FirstFragmentDirections.actionMainToFlowOne(1))
+        }
 
         requireActivity().onBackPressedDispatcher
                 .addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
@@ -49,6 +44,7 @@ class FirstFragment : Fragment() {
                         if (isEnabled) {
                             isEnabled = false
                         }
+
                         requireActivity().finish()
                     }
                 })
