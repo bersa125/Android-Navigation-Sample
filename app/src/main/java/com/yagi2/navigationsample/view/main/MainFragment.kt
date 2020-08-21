@@ -6,12 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.navigation.NavArgs
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.navArgs
 import com.yagi2.navigationsample.R
-import com.yagi2.navigationsample.view.firstexample.FlowFragmentArgs
 import kotlinx.android.synthetic.main.fragment_main.*
 
 class MainFragment : Fragment(){
@@ -39,10 +36,9 @@ class MainFragment : Fragment(){
         arguments.run {
             val args= this?.let { MainActivityArgs.fromBundle(it) }
 
-            Toast.makeText(context,args.toString(), Toast.LENGTH_SHORT).show()
             if(args!=null) {
                 imgToFirstGraphExample.visibility = if (args.checkParcel.checkFirst) View.VISIBLE else View.GONE
-                imgToFirstGraphExample.visibility = if (args.checkParcel.checkSecond) View.VISIBLE else View.GONE
+                imgToSecondGraphExample.visibility = if (args.checkParcel.checkSecond) View.VISIBLE else View.GONE
             }
         }
 

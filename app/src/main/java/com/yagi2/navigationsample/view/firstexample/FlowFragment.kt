@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.navArgs
 import com.yagi2.navigationsample.R
 import kotlinx.android.synthetic.main.fragment_one.text
 import kotlinx.android.synthetic.main.fragment_three.*
@@ -24,16 +25,13 @@ class FlowFragment : Fragment() {
     }
 
     private lateinit var navController : NavController
-    private var number by Delegates.notNull<Int>()
+
+    private val args by navArgs<FlowFragmentArgs>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
 
-        number = arguments?.let {
-            FlowFragmentArgs.fromBundle(it).number
-        }!!
-
-        return when (number) {
+        return when (args.number) {
             1 -> inflater.inflate(R.layout.fragment_one, container, false)
             2 -> inflater.inflate(R.layout.fragment_two, container, false)
             3 -> inflater.inflate(R.layout.fragment_three, container, false)
@@ -60,9 +58,7 @@ class FlowFragment : Fragment() {
         })
 
 
-        text?.text=arguments.run {
-            FlowFragmentArgs.fromBundle(this!!).number.toString()
-        }
+        text?.text=args.number.toString()
 
         if(navController.currentDestination?.id == R.id.fragment_three) {
             if (navController.graph.id != R.id.first_nav_graph) {
