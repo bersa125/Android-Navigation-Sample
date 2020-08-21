@@ -5,11 +5,18 @@
     android:id="@+id/first_nav_graph"
     app:startDestination="@id/fragment_main">
 
+
     <fragment
         android:id="@+id/fragment_main"
         android:name="com.yagi2.navigationsample.view.firstexample.FirstFragment"
         android:label="MainFragment"
         tools:layout="@layout/fragment_first_example">
+
+        <action
+            android:id="@+id/action_exit_to_activity"
+            app:destination="@id/activity_main"
+            app:launchSingleTop="true"
+            />
 
         <action
             android:id="@+id/action_main_to_flow_one"
@@ -18,6 +25,8 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slise_in_left"
             app:popExitAnim="@anim/slide_out_right" />
+
+
     </fragment>
 
     <fragment
@@ -77,10 +86,10 @@
 
         <action
             android:id="@+id/action_back_with_arguments_flow"
-            app:destination="@id/fragment_one"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:launchSingleTop="true"
+            app:destination="@id/fragment_one"
             app:popEnterAnim="@anim/slise_in_left"
             app:popExitAnim="@anim/slide_out_right"
             app:popUpTo="@id/fragment_one"
@@ -90,4 +99,16 @@
                 app:argType="integer" />
         </action>
     </fragment>
+
+    <activity
+        android:id="@+id/activity_main"
+        android:label="@string/app_name"
+        android:name="com.yagi2.navigationsample.view.main.MainActivity"
+        tools:layout="@layout/activity_main"
+        >
+        <argument
+            android:name="checkParcel"
+            app:argType="com.yagi2.navigationsample.view.main.MainCheckDataParcelable"
+            />
+    </activity>
 </navigation>

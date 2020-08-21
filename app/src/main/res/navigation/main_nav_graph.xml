@@ -12,11 +12,11 @@
         tools:layout="@layout/fragment_main"
         >
         <action
-            android:id="@+id/action_next_to_first"
-            app:destination="@id/activity_first"
-            />
+        android:id="@+id/action_next_to_first_activity"
+        app:destination="@id/activity_first"
+        />
         <action
-            android:id="@+id/action_next_to_second"
+            android:id="@+id/action_next_to_second_activity"
             app:destination="@id/activity_second"
             />
     </fragment>

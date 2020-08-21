@@ -3,7 +3,10 @@ package com.yagi2.navigationsample.view.firstexample
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import com.yagi2.navigationsample.R
 
 class FirstActivity : AppCompatActivity() {

@@ -8,13 +8,25 @@
             <LayoutPositions>
               <option name="myPositions">
                 <map>
+                  <entry key="activity_main">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="200" />
+                            <option name="y" value="-200" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="fragment_main">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="256" />
-                            <option name="y" value="105" />
+                            <option name="x" value="240" />
+                            <option name="y" value="247" />
                           </Point>
                         </option>
                         <option name="myPositions">
@@ -55,8 +67,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="12" />
-                            <option name="y" value="41" />
+                            <option name="x" value="-69" />
+                            <option name="y" value="-7" />
                           </Point>
                         </option>
                         <option name="myPositions">
@@ -136,18 +148,18 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-692" />
-                            <option name="y" value="-432" />
+                            <option name="x" value="12" />
+                            <option name="y" value="12" />
                           </Point>
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_next_to_first">
+                            <entry key="action_next_to_first_activity">
                               <value>
                                 <LayoutPositions />
                               </value>
                             </entry>
-                            <entry key="action_next_to_second">
+                            <entry key="action_next_to_second_activity">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -261,6 +273,18 @@
             <LayoutPositions>
               <option name="myPositions">
                 <map>
+                  <entry key="activity_main">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-442" />
+                            <option name="y" value="-17" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="dialog_manipulate">
                     <value>
                       <LayoutPositions>
@@ -272,7 +296,7 @@
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="incrementCounter">
+                            <entry key="action_no_changes">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -293,7 +317,7 @@
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_next_flow">
+                            <entry key="action_spawn_dialog">
                               <value>
                                 <LayoutPositions />
                               </value>

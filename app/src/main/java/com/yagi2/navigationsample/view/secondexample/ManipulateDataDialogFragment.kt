@@ -4,21 +4,17 @@ import android.app.Dialog
 import android.content.DialogInterface
 
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
-import androidx.navigation.NavController
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
-import com.yagi2.navigationsample.view.firstexample.FlowFragment
 
 
 class ManipulateDataDialogFragment : DialogFragment() {
 
     companion object {
 
-        const val COUNTER_MANIPULATION_KEY = "manipulate"
-        const val TEXT_KEY="text"
+        const val COUNTER_MANIPULATION_BACKSTACK_KEY = "manipulate"
+        const val TEXT_ARGUMENT_KEY="text"
 
         fun newInstance(title: String?): ManipulateDataDialogFragment {
             val frag = ManipulateDataDialogFragment()
@@ -39,17 +35,16 @@ class ManipulateDataDialogFragment : DialogFragment() {
         alertDialogBuilder.setMessage("Manipulate the counter?")
         alertDialogBuilder.setPositiveButton("+1", DialogInterface.OnClickListener { dialog, which ->
             //Action to increase
-            navController.currentBackStackEntry
-            navController.previousBackStackEntry?.savedStateHandle?.set(COUNTER_MANIPULATION_KEY, true)
+            navController.previousBackStackEntry?.savedStateHandle?.set(COUNTER_MANIPULATION_BACKSTACK_KEY, true)
             navController.popBackStack()
         })
         alertDialogBuilder.setNegativeButton("-1", DialogInterface.OnClickListener { dialog, which ->
-            navController.previousBackStackEntry?.savedStateHandle?.set(COUNTER_MANIPULATION_KEY, false)
+            navController.previousBackStackEntry?.savedStateHandle?.set(COUNTER_MANIPULATION_BACKSTACK_KEY, false)
             navController.popBackStack()
         })
-        alertDialogBuilder.setNeutralButton("0",DialogInterface.OnClickListener { dialog, which ->
+        alertDialogBuilder.setOnCancelListener {
             navController.navigate(ManipulateDataDialogFragmentDirections.actionNoChanges("No Changes"))
-        })
+        }
         return alertDialogBuilder.create()
     }
 

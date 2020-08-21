@@ -24,7 +24,7 @@
         <activity android:name=".view.firstexample.FirstActivity"
             android:label="@string/first_example_label"/>
         <activity android:name=".view.secondexample.SecondActivity"
-            android:label="@string/first_example_label"/>
+            android:label="@string/second_example_label"/>
 
     </application>
 

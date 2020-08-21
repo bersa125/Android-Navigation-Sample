@@ -61,7 +61,7 @@ class FlowFragment : Fragment() {
 
 
         text?.text=arguments.run {
-            FlowFragmentArgs.fromBundle(this).number.toString()
+            FlowFragmentArgs.fromBundle(this!!).number.toString()
         }
 
         if(navController.currentDestination?.id == R.id.fragment_three) {

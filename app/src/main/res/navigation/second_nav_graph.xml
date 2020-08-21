@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/second_nav_graph.xml"
+    android:id="@+id/second_nav_graph"
     app:startDestination="@id/fragment_main">
 
     <fragment
@@ -21,8 +21,14 @@
             android:id="@+id/action_spawn_dialog"
             app:destination="@id/dialog_manipulate"
             >
+
         </action>
 
+        <action
+            android:id="@+id/action_exit_to_activity"
+            app:destination="@id/activity_main"
+            app:launchSingleTop="true"
+            />
     </fragment>
 
     <dialog
@@ -33,7 +39,6 @@
 
         <action
             android:id="@+id/action_no_changes"
-            app:destination="@id/fragment_main"
             app:popUpTo="@id/fragment_main"
             >
             <argument
@@ -44,6 +49,16 @@
 
     </dialog>
 
-
+    <activity
+        android:id="@+id/activity_main"
+        android:label="@string/app_name"
+        android:name="com.yagi2.navigationsample.view.main.MainActivity"
+        tools:layout="@layout/activity_main"
+        >
+        <argument
+            android:name="checkParcel"
+            app:argType="com.yagi2.navigationsample.view.main.MainCheckDataParcelable"
+            />
+    </activity>
 
 </navigation>
