@@ -14,8 +14,7 @@
         <action
             android:id="@+id/action_exit_to_activity"
             app:destination="@id/activity_main"
-            app:launchSingleTop="true"
-            />
+            app:launchSingleTop="true" />
 
         <action
             android:id="@+id/action_main_to_flow_one"
@@ -102,11 +101,9 @@
         android:id="@+id/activity_main"
         android:label="@string/app_name"
         android:name="com.yagi2.navigationsample.view.main.MainActivity"
-        tools:layout="@layout/activity_main"
-        >
+        tools:layout="@layout/activity_main">
         <argument
             android:name="checkParcel"
-            app:argType="com.yagi2.navigationsample.view.main.MainCheckDataParcelable"
-            />
+            app:argType="com.yagi2.navigationsample.view.main.MainCheckDataParcelable" />
     </activity>
 </navigation>

@@ -16,13 +16,13 @@ import kotlinx.android.synthetic.main.fragment_three.*
 
 class FlowFragment : Fragment() {
 
-    companion object{
+    companion object {
 
-        const val ON_BACK_NUMBER_PARAMETER_KEY= "number"
+        const val ON_BACK_NUMBER_PARAMETER_KEY = "number"
 
     }
 
-    private lateinit var navController : NavController
+    private lateinit var navController: NavController
 
     private val args by navArgs<FlowFragmentArgs>()
 
@@ -56,9 +56,9 @@ class FlowFragment : Fragment() {
         })
 
 
-        text?.text=args.number.toString()
+        text?.text = args.number.toString()
 
-        if(navController.currentDestination?.id == R.id.fragment_three) {
+        if (navController.currentDestination?.id == R.id.fragment_three) {
             if (navController.graph.id != R.id.first_nav_graph) {
                 checkbox_modify_previous_label.visibility = View.GONE
             } else {
@@ -66,7 +66,7 @@ class FlowFragment : Fragment() {
             }
         }
 
-        next_button.setOnClickListener{
+        next_button.setOnClickListener {
             navController.navigate(FlowFragmentDirections.actionNextFlow())
         }
 
@@ -80,7 +80,7 @@ class FlowFragment : Fragment() {
                 .addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
                     override fun handleOnBackPressed() {
 
-                        if (navController.currentDestination?.id == R.id.fragment_three && navController.graph.id == R.id.first_nav_graph && checkbox_modify_previous_label.isChecked){
+                        if (navController.currentDestination?.id == R.id.fragment_three && navController.graph.id == R.id.first_nav_graph && checkbox_modify_previous_label.isChecked) {
                             navController.previousBackStackEntry?.savedStateHandle?.set(ON_BACK_NUMBER_PARAMETER_KEY, 5)
                         }
 

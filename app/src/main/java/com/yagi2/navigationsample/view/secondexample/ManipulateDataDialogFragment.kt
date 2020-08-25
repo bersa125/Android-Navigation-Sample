@@ -35,10 +35,10 @@ class ManipulateDataDialogFragment : DialogFragment() {
         alertDialogBuilder.setMessage("Manipulate the counter?")
         alertDialogBuilder.setPositiveButton("+1", DialogInterface.OnClickListener { dialog, which ->
             //Action to increase
-            navController.navigate(ManipulateDataDialogFragmentDirections.actionUpdate(args.counter+1))
+            navController.navigate(ManipulateDataDialogFragmentDirections.actionUpdate(args.counter + 1))
         })
         alertDialogBuilder.setNegativeButton("-1", DialogInterface.OnClickListener { dialog, which ->
-            navController.navigate(ManipulateDataDialogFragmentDirections.actionUpdate(args.counter-1))
+            navController.navigate(ManipulateDataDialogFragmentDirections.actionUpdate(args.counter - 1))
         })
         return alertDialogBuilder.create()
     }

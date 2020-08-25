@@ -8,10 +8,10 @@ import com.yagi2.navigationsample.R
 
 class SecondActivity : AppCompatActivity() {
 
-    companion object{
+    companion object {
 
-        fun start(context: Activity){
-            context.startActivity(Intent(context,SecondActivity::class.java))
+        fun start(context: Activity) {
+            context.startActivity(Intent(context, SecondActivity::class.java))
         }
 
     }

@@ -14,40 +14,33 @@
         <argument
             android:name="counter"
             android:defaultValue="0"
-            app:argType="integer"
-            />
+            app:argType="integer" />
 
         <action
             android:id="@+id/action_spawn_dialog"
-            app:destination="@id/dialog_manipulate"
-           />
+            app:destination="@id/dialog_manipulate" />
         <action
             android:id="@+id/action_exit_to_activity"
             app:destination="@id/activity_main"
-            app:launchSingleTop="true"
-            />
+            app:launchSingleTop="true" />
     </fragment>
 
     <dialog
         android:id="@+id/dialog_manipulate"
         android:name="com.yagi2.navigationsample.view.secondexample.ManipulateDataDialogFragment"
-        android:label="ManipulateDialog"
-        >
+        android:label="ManipulateDialog">
 
         <argument
             android:name="counter"
-            app:argType="integer"
-            />
+            app:argType="integer" />
 
         <action
             android:id="@+id/action_update"
             app:destination="@id/fragment_main"
-            app:popUpTo="@id/fragment_main"
-            >
+            app:popUpTo="@id/fragment_main">
             <argument
                 android:name="counter"
-                app:argType="integer"
-                />
+                app:argType="integer" />
         </action>
 
     </dialog>
@@ -56,12 +49,10 @@
         android:id="@+id/activity_main"
         android:label="@string/app_name"
         android:name="com.yagi2.navigationsample.view.main.MainActivity"
-        tools:layout="@layout/activity_main"
-        >
+        tools:layout="@layout/activity_main">
         <argument
             android:name="checkParcel"
-            app:argType="com.yagi2.navigationsample.view.main.MainCheckDataParcelable"
-            />
+            app:argType="com.yagi2.navigationsample.view.main.MainCheckDataParcelable" />
     </activity>
 
 </navigation>

@@ -12,13 +12,12 @@
         android:layout_height="wrap_content"
         android:textColor="@android:color/black"
         android:textSize="20sp"
-        android:layout_marginBottom="100dp"
-        />
+        android:layout_marginBottom="100dp" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnDialogSpawn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/spawn_the_dialog"/>
+        android:text="@string/spawn_the_dialog" />
 
 </LinearLayout>
