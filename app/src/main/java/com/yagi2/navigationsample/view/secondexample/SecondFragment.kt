@@ -48,9 +48,11 @@ class SecondFragment : Fragment() {
                     override fun handleOnBackPressed() {
 
                         navController.navigate(SecondFragmentDirections.actionExitToActivity(MainCheckDataParcelable(checkFirst = false, checkSecond = true)), exitActionIds, requireActivity())
+
                         if (isEnabled) {
                             isEnabled = false
                         }
+
                     }
                 })
     }

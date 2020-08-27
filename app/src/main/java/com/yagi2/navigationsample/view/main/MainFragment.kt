@@ -52,7 +52,6 @@ class MainFragment : Fragment() {
         }
         btnToSecondGraphExample.setOnClickListener {
             navController.navigate(MainFragmentDirections.actionNextToSecondActivity(), exitActionIds, requireActivity())
-            requireActivity().finish()
         }
     }
 
